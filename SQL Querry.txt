@@ -1,0 +1,59 @@
+CREATE DATABASE MusicStore
+GO
+
+USE MusicStore
+GO
+
+CREATE TABLE Disc
+(Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+Cover NVARCHAR(400) NULL,
+DiskTitle NVARCHAR(200) NOT NULL,
+Singer NVARCHAR(200) NOT NULL,
+Publisher NVARCHAR(100) NOT NULL,
+Tracks INT NOT NULL,
+Genre NVARCHAR(100) NOT NULL,
+YearPublishing DATE NOT NULL,
+CostPrice DECIMAL NOT NULL,
+SellPrice DECIMAL NOT NULL)
+GO
+
+
+INSERT Disc
+VALUES
+('..\..\Covers\1zztop.jpg','Eliminator','ZZ Top','Warner Bros. Records',8,'Рок','1983-03-23',80,100),
+('..\..\Covers\2mj.jpg','Dangerous','Michael Jackson ',' Epic Records',13,'Поп','1991-11-26',90,110),
+('..\..\Covers\3dmode.jpg','Violator','Depeche Mode','Mute Records ',8,'Рок','1990-03-19',100,120),
+('..\..\Covers\4pinkfloyd.jpg','The Wall','Pink Floyd','Britannia Row',23,'Рок','1976-11-30',95,115),
+('..\..\Covers\5pitbull.jpg','Dale','Pitbull','Sony Music Latin',8,'Хип-хоп','2015-07-17',80,100),
+('..\..\Covers\6perry.jpeg','Witness','Katy Perry','Capitol Records',13,'Поп','2017-06-09',120,140),
+('..\..\Covers\7sting.jpg','Brand New Day','Sting','A&M Records',8,'Рок','1999-09-24',80,100),
+('..\..\Covers\8adams.jpg','Get Up','Bryan Adams','Universal Music',13,'Рок','2015-10-02',90,120),
+('..\..\Covers\8adams.jpg','Play','Moby','V2 Records',18,'Техно','1999-05-17',80,100),
+('..\..\Covers\10snap.jpg','World Power','Snap','Ariola Records',8,'Хип-хоп','1990-05-15',80,100)
+GO
+
+CREATE TABLE LoginPassword
+(Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+Login NVARCHAR(100) NOT NULL,
+Password NVARCHAR(100) NOT NULL)
+GO
+
+INSERT LoginPassword
+VALUES
+('admin','password')
+GO
+
+CREATE TABLE Buyer
+(Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+FirstName NVARCHAR(100) NOT NULL,
+LastName NVARCHAR(100) NOT NULL,
+Quantity INT NOT NULL)
+GO
+
+CREATE TABLE Checkk
+(Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+DataSale date NOT NULL,
+IdDisc int NOT NULL FOREIGN KEY REFERENCES Disc(Id) ON DELETE CASCADE,
+IdBuyer int NOT NULL FOREIGN KEY REFERENCES Buyer(Id) ON DELETE CASCADE,
+Summ decimal NOT NULL)
+GO
