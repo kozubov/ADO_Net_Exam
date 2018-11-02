@@ -1,6 +1,6 @@
 # ADO_Net_Exam
 
-Create an application "Music Store".<br/>
+Create "Music Store" application.<br/>
 The main objective of the project: to consider the current range of music
 records in the store.<br/>
 The following information about the records should be stored: the name of the record, the name of the group, the name of the publisher, the number of tracks, genre, year of publication, cost price, price for sale.<br/>
